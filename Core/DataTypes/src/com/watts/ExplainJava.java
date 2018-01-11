@@ -70,6 +70,5 @@ public class ExplainJava {
         explainJava.exampleOnPrefixPostFixOperators();
         System.out.println();
         explainJava.explainMathOrder();
-        System.out.println();
     }
 }
