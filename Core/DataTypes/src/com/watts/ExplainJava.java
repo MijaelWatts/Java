@@ -62,16 +62,6 @@ public class ExplainJava {
         System.out.println("Result 4 = " + result4);
     }
 
-    private void explainImplicitTypeConversion() {
-        System.out.println("--- Explain Implicit Type Conversion ---");
-
-        int result1 = shortMaxVal - intMaxVal;
-        float result2 = floatVal - intMaxVal;
-        double result3 = doubleVal = longMaxVal;
-
-        System.out.println("Mixed integer sizes(short & int) will be cast to the wider data type");
-    }
-
     public static void main(String[] args) {
         ExplainJava explainJava = new ExplainJava();
 
@@ -81,6 +71,5 @@ public class ExplainJava {
         System.out.println();
         explainJava.explainMathOrder();
         System.out.println();
-        explainJava.explainImplicitTypeConversion();
     }
 }
