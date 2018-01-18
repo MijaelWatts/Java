@@ -5,38 +5,93 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        List<String> contactsA = new ArrayList<>();
+        Main main = new Main();
 
-        contactsA.add("Lanie");
-        contactsA.add("Eliette");
-        contactsA.add("Mijael");
-        contactsA.add("Mijael");
+        System.out.println("\n☺☺☺☺☺☺☺☺☺☺☺☺ THE SET INTERFACE ☺☺☺☺☺☺☺☺☺☺☺☺");
+        System.out.println("\n→→→→→→→→→→ Set Interface Basics ←←←←←←←←←←\n");
+        main.setInterfaceBasics();
+        System.out.println("\n→→→→→→→→→→ Set Interface Bulks ←←←←←←←←←←\n");
+        main.setInterfaceBulks();
+    }
 
-        Set<String> contactsB = new HashSet<>(contactsA); // Removes duplicates.
-        Set<String> contactsC = new TreeSet<>(contactsA); // Removes duplicates and orders them in ascending order.
-        Set<String> contactsD = new LinkedHashSet<>(contactsA); // Removes duplicates and respect the order in which
-        // they were inserted.
+    /**
+     * Method explaining with an example how the Set interface works.
+     */
+    private void setInterfaceBasics(){
+        int index = 0;
+        List<String> phoneContacts = new ArrayList<>();
 
-        System.out.println("Displaying all contacts in list:");
-        for(String contactName : contactsA) {
-            System.out.println("ArrayList - " + contactName);
+        phoneContacts.add("Lanie Watts");
+        phoneContacts.add("Eliette Watts");
+        phoneContacts.add("Mijael Watts");
+        phoneContacts.add("Mijael Watts");
+
+        Set<String> contactsHashSet = new HashSet<>(phoneContacts);
+        Set<String> contactsTreeSet = new TreeSet<>(phoneContacts);
+        Set<String> contactsLinkedHashSet = new LinkedHashSet<>(phoneContacts);
+
+        String[] message = {
+                "\nRepeated contacts removed (HashSet) order changes due to hash keys generated:",
+                "\nRepeated contacts removed (TreeSet) ascending order:",
+                "\nRepeated contacts removed (LinkedHashSet) insertion order respected:"
+        };
+        Set[] setArray = {contactsHashSet, contactsTreeSet, contactsLinkedHashSet};
+
+        System.out.println("Original contacts (ArrayList):");
+        for(String contactName : phoneContacts) {
+            System.out.println(contactName);
         }
 
-        System.out.println("\nList without repeated contacts:");
-        for(String contactName : contactsB) {
-            System.out.println("HashSet - " + contactName);
-        }
+        while(index < 3){
+            Set<String> setString = setArray[index];
 
-        System.out.println("\nList without repeated contacts in order:");
-        for(String contactName : contactsC) {
-            System.out.println("TreeSet - " + contactName);
-        }
+            System.out.println(message[index]);
 
-        System.out.println("\nList without repeated contacts respecting the insertion order:");
-        for(String contactName : contactsD) {
-            System.out.println("LinkedHashSet - " + contactName);
-        }
+            for(String contactName : setString) {
+                System.out.println(contactName);
+            }
 
-        // Set Interface Bulk Operations
+            index++;
+        }
+    }
+
+    /**
+     * Method explaining with an example how the Set interface Bulks work.
+     */
+    private void setInterfaceBulks() {
+        Set<String> farmA = new LinkedHashSet<>();
+        Set<String> farmB = new LinkedHashSet<>();
+
+        farmA.add("Cows");
+        farmA.add("Horses");
+        farmA.add("Pigs");
+
+        farmB.add("Chickens");
+        farmB.add("Horses");
+        farmB.add("Sheeps");
+
+        System.out.println("Animals in Farm A: " + farmA);
+        System.out.println("Animals in Farm B: " + farmB);
+
+        // containsAll() returns true if s2 is a subset of s1.
+        Set<String> container = new LinkedHashSet<>(farmA);
+        boolean isASubSet = container.containsAll(farmB);
+
+        // addAll() transforms s1 into the union of s1 and s2.
+        Set<String> union = new LinkedHashSet<>(farmA);
+        union.addAll(farmB);
+
+        // retainAll() transforms s1 into the intersection of s1 and s2 (elements common to both sets).
+        Set<String> intersection = new LinkedHashSet<>(farmA);
+        intersection.retainAll(farmB);
+
+        // removeAll() transforms s1 into the set difference of s1 and s2.
+        Set<String> difference = new LinkedHashSet<>(farmA);
+        difference.removeAll(farmB);
+
+        System.out.println("\nFarmA contains the same animals of FarmB? " + isASubSet + (isASubSet ? container : ""));
+        System.out.println("Union of FarmA and FarmB: " + union);
+        System.out.println("Animals repeated in FarmA and FarmB: " + intersection);
+        System.out.println("Animals in FarmA that exist not in FarmB:" + difference);
     }
 }
