@@ -54,6 +54,13 @@ public class TheListInterface {
 
 	}
 	
+	public void listInterfaceRangeView() {
+		List<String> rangeList = fuzzballTeamList.subList(1, 3);
+		
+		System.out.println("The complete list: " + fuzzballTeamList);
+		System.out.println("The range chosen: " + rangeList);
+	}
+	
 	private void printListThroughIterator(ListIterator<String> listIterator) {
 		byte counter = 0;
 		
