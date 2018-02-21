@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class WebDriverDemo {
+public class WebDriverDemoChrome {
 
     public static void main(String[] args) throws Exception {
         String userPath   = System.getProperty("user.dir");
@@ -39,6 +39,10 @@ public class WebDriverDemo {
         Thread.sleep(5000);
         
         driver.findElement(By.xpath("//*[@id=\"primaryContainer\"]/div[4]/div/div[1]/div/div[4]/div[1]/div/div[1]/div/div/div[1]/div/button")).click();
+        
+        Thread.sleep(10000);
+        
+        driver.close();
     }
 
 }
