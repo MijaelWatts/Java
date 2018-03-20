@@ -16,6 +16,7 @@ public class TheSetInterface {
 	public void setInterfaceBasics(){
         int index = 0;
         List<String> phoneContacts = new ArrayList<>();
+        
 
         phoneContacts.add("Lanie Watts");
         phoneContacts.add("Eliette Watts");
@@ -89,6 +90,17 @@ public class TheSetInterface {
         System.out.println("Union of FarmA and FarmB: " + union);
         System.out.println("Animals repeated in FarmA and FarmB: " + intersection);
         System.out.println("Animals in FarmA that exist not in FarmB:" + difference);
+    }
+    
+    public void setInterfaceBasicsRealWorldScenario(){
+    	
+    	Set<Contact> contactSet = new LinkedHashSet<Contact>();
+    	
+    	Contact contact1 = new Contact("Mijael", "4773214613", "mijael@gmail.com");
+    	contactSet.add(contact1);
+    	
+    	System.out.println(contactSet);
+    	
     }
 
 }
